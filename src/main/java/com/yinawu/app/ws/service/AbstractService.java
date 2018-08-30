@@ -6,5 +6,5 @@ package com.yinawu.app.ws.service;
 public interface AbstractService<T> {
     public T create(T dto);
 
-    public T validate(T dto);
+    public String validate(T dto);
 }

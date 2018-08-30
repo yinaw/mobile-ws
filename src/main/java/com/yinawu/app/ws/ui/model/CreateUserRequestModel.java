@@ -8,7 +8,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * Created by ywu on 7/20/18.
  */
-@XmlRootElement
 public class CreateUserRequestModel {
     @Getter
     @Setter

@@ -1,10 +1,12 @@
 package com.yinawu.app.ws.Validation;
 
 import com.yinawu.app.ws.shared.dto.UserDTO;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by ywu on 7/28/18.
  */
+@Component
 public class UserValidator extends Validator<UserDTO> {
 
     public String validate(UserDTO userDto) {

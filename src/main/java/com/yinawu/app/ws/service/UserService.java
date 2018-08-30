@@ -8,4 +8,6 @@ import com.yinawu.app.ws.shared.dto.UserDTO;
 public interface UserService extends AbstractService<UserDTO> {
 
     public UserDTO create(UserDTO userDTO);
+
+    public String validate(UserDTO userDTO);
 }

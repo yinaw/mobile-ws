@@ -16,8 +16,9 @@ public abstract class AbstractServiceImpl<T> implements AbstractService<T> {
     private AutowireCapableBeanFactory beanFactory;
 
 
-    public T validate(T model) {
+    public String validate(T model) {
         Class clazz = model.getClass();
+        String validationMsg = null;
 
         if (clazz.isAnnotationPresent(Custom.class)) {
 
@@ -29,11 +30,10 @@ public abstract class AbstractServiceImpl<T> implements AbstractService<T> {
 
             Validator<T> validator1 = beanFactory.getBean(validator);
 
-            String validationMsg = validator1.validate(model);
+            validationMsg = validator1.validate(model);
         }
-        return model;
+        return validationMsg;
     }
-
 
     public T create(T dto) {
         // T result = new T();

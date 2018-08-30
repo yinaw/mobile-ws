@@ -1,16 +1,24 @@
 package com.yinawu.app.ws.service;
 
+import com.yinawu.app.ws.Validation.UserValidator;
 import com.yinawu.app.ws.Validation.Validator;
 import com.yinawu.app.ws.shared.dto.UserDTO;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by ywu on 7/22/18.
  */
-public class UserServiceImpl extends AbstractServiceImpl<UserDTO> {
+@Component
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserServiceImpl extends AbstractServiceImpl<UserDTO> implements UserService  {
 
     @Autowired
-    Validator<UserDTO> validator;
+    UserValidator validator;
 
     public UserDTO create(UserDTO userDTO) {
 
@@ -34,5 +42,9 @@ public class UserServiceImpl extends AbstractServiceImpl<UserDTO> {
         // Return back the user profile
 
         return result;
+    }
+
+    public String validate(UserDTO userDTO) {
+        return super.validate(userDTO);
     }
 }
