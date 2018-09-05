@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
  */
 
 @Configuration
-@ComponentScan(basePackages = "com.yinawu")
+@ComponentScan(basePackages = "com.yinawu.app.ws")
 public class AppConfig{
 
 }

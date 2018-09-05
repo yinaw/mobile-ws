@@ -26,7 +26,8 @@ public class UserServiceImpl extends AbstractServiceImpl<UserDTO> implements Use
 
         // Validate the required fields
 
-        validator.validate(userDTO);
+        validate(userDTO);
+        //validator.validate(userDTO);
 
         // Check if user already exists
 

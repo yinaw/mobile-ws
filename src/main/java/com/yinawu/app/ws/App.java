@@ -1,5 +1,6 @@
 package com.yinawu.app.ws;
 
+import com.yinawu.app.ws.ui.entrypoints.UsersEntryPoint;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.spring.scope.RequestContextFilter;
 
@@ -16,5 +17,6 @@ public class App extends ResourceConfig {
         packages("com.yinawu.app.ws.ui.entrypoints");
         register(AppConfig.class);
         register(RequestContextFilter.class);
+       // register(UsersEntryPoint.class);
     }
 }
