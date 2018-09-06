@@ -17,7 +17,7 @@ public abstract class AbstractServiceImpl<T> implements AbstractService<T> {
 
 
     public String validate(T model) {
-        Class clazz = model.getClass();
+        Class<?> clazz = model.getClass();
         String validationMsg = null;
 
         if (clazz.isAnnotationPresent(Custom.class)) {
