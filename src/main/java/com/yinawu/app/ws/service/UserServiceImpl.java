@@ -2,6 +2,8 @@ package com.yinawu.app.ws.service;
 
 import com.yinawu.app.ws.Validation.UserValidator;
 import com.yinawu.app.ws.Validation.Validator;
+import com.yinawu.app.ws.dao.MySQLDAO;
+import com.yinawu.app.ws.entity.UserEntity;
 import com.yinawu.app.ws.shared.dto.UserDTO;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -18,7 +20,10 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl extends AbstractServiceImpl<UserDTO> implements UserService  {
 
     @Autowired
-    UserValidator validator;
+    public UserValidator validator;
+
+    @Autowired
+    public MySQLDAO mySQLDAO;
 
     public UserDTO create(UserDTO userDTO) {
 
@@ -27,6 +32,11 @@ public class UserServiceImpl extends AbstractServiceImpl<UserDTO> implements Use
         // Validate the required fields
 
         validate(userDTO);
+
+        UserEntity userEntity = new UserEntity();
+        userEntity.setFirstName("Yina");
+
+        mySQLDAO.saveOrUpdate(userEntity);
         //validator.validate(userDTO);
 
         // Check if user already exists
