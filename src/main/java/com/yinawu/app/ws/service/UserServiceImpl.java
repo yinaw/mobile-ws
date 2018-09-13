@@ -2,6 +2,7 @@ package com.yinawu.app.ws.service;
 
 import com.yinawu.app.ws.Validation.UserValidator;
 import com.yinawu.app.ws.Validation.Validator;
+import com.yinawu.app.ws.dao.DAO;
 import com.yinawu.app.ws.dao.MySQLDAO;
 import com.yinawu.app.ws.entity.UserEntity;
 import com.yinawu.app.ws.shared.dto.UserDTO;
@@ -23,7 +24,7 @@ public class UserServiceImpl extends AbstractServiceImpl<UserDTO> implements Use
     public UserValidator validator;
 
     @Autowired
-    public MySQLDAO mySQLDAO;
+    public DAO mySQLDAO;
 
     public UserDTO create(UserDTO userDTO) {
 
