@@ -4,8 +4,10 @@ import com.yinawu.app.ws.entity.UserEntity;
 import com.yinawu.app.ws.shared.dto.UserDTO;
 
 
-public interface DAO {
+public interface DAO<T> {
 
-    public UserEntity saveOrUpdate(UserEntity userEntity);
+    public void merge (T entity);
+    public void save (T entity);
+    public T find(long id);
 
 }

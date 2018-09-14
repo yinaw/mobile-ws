@@ -12,16 +12,25 @@ import javax.persistence.Query;
 import java.util.List;
 
 @Repository
-public class MySQLDAO implements DAO {
+public class UserDAOImpl implements UserDAO {
 
     @PersistenceContext
     public EntityManager entityManager;
 
 
     @Transactional
-    public UserEntity saveOrUpdate(UserEntity userEntity) {
+    public void merge(UserEntity userEntity) {
+        entityManager.merge(userEntity);
+    }
+
+    @Transactional
+    public void save(UserEntity userEntity) {
+        entityManager.persist(userEntity);
+    }
+
+    public UserEntity find(long id) {
         Query query  = entityManager.createQuery("SELECT user FROM UserEntity user WHERE user.id=:userId");
-        query.setParameter("userId", 1);
+        query.setParameter("userId", id);
         List userEntityList = query.getResultList();
 
         return (UserEntity)userEntityList.get(0);

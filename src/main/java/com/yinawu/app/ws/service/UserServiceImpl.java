@@ -1,16 +1,14 @@
 package com.yinawu.app.ws.service;
 
 import com.yinawu.app.ws.Validation.UserValidator;
-import com.yinawu.app.ws.Validation.Validator;
-import com.yinawu.app.ws.dao.DAO;
-import com.yinawu.app.ws.dao.MySQLDAO;
+import com.yinawu.app.ws.dao.UserDAO;
 import com.yinawu.app.ws.entity.UserEntity;
 import com.yinawu.app.ws.shared.dto.UserDTO;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 /**
  * Created by ywu on 7/22/18.
@@ -24,7 +22,7 @@ public class UserServiceImpl extends AbstractServiceImpl<UserDTO> implements Use
     public UserValidator validator;
 
     @Autowired
-    public DAO mySQLDAO;
+    public UserDAO mySQLDAO;
 
     public UserDTO create(UserDTO userDTO) {
 
@@ -33,11 +31,11 @@ public class UserServiceImpl extends AbstractServiceImpl<UserDTO> implements Use
         // Validate the required fields
 
         validate(userDTO);
-
         UserEntity userEntity = new UserEntity();
-        userEntity.setFirstName("Yina");
 
-        mySQLDAO.saveOrUpdate(userEntity);
+        BeanUtils.copyProperties(userDTO, userEntity);
+
+        mySQLDAO.save(userEntity);
         //validator.validate(userDTO);
 
         // Check if user already exists

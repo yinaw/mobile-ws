@@ -26,28 +26,4 @@ public class UserDTO implements Serializable {
     @Getter
     @Setter
     private String lastName;
-    @Getter
-    @Setter
-    private String email;
-    @Getter
-    @Setter
-    private String password;
-    @Getter
-    @Setter
-    private String salt;
-    @Getter
-    @Setter
-    private String encryptedPassword;
-    @Getter
-    @Setter
-    private String userId;
-    @Getter
-    @Setter
-    private String token;
-    @Getter
-    @Setter
-    private String emailVerificationToken;
-    @Getter
-    @Setter
-    private Boolean emailVerificationStatus;
 }
