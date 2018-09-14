@@ -56,7 +56,8 @@ public class HibernateConfig {
     public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://myawsmysql.cxec7ix73vvu.us-east-2.rds.amazonaws.com:3306/app?useSSL=false");
+        //dataSource.setUrl("jdbc:mysql://myawsmysql.cxec7ix73vvu.us-east-2.rds.amazonaws.com:3306/app?useSSL=false");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/app?useSSL=false");
         dataSource.setUsername("root");
         dataSource.setPassword("adminadmin");
 
